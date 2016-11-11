@@ -15,6 +15,9 @@
 		9BE6F5461DD4D90D00C5B016 /* HQPagerViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE6F5451DD4D90D00C5B016 /* HQPagerViewControllerTests.swift */; };
 		9BE6F5521DD4D95A00C5B016 /* HQPagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE6F5511DD4D95A00C5B016 /* HQPagerViewController.swift */; };
 		9BE6F5541DD4D97500C5B016 /* HQPagerMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE6F5531DD4D97500C5B016 /* HQPagerMenuView.swift */; };
+		EAF3EB271DD5A8E400F68962 /* SampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF3EB251DD5A8E400F68962 /* SampleViewController.swift */; };
+		EAF3EB281DD5A8E400F68962 /* SampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAF3EB261DD5A8E400F68962 /* SampleViewController.xib */; };
+		EAF3EB2A1DD5AA8F00F68962 /* ColorUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF3EB291DD5AA8F00F68962 /* ColorUtil.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,9 @@
 		9BE6F5471DD4D90D00C5B016 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9BE6F5511DD4D95A00C5B016 /* HQPagerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HQPagerViewController.swift; sourceTree = "<group>"; };
 		9BE6F5531DD4D97500C5B016 /* HQPagerMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HQPagerMenuView.swift; sourceTree = "<group>"; };
+		EAF3EB251DD5A8E400F68962 /* SampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleViewController.swift; sourceTree = "<group>"; };
+		EAF3EB261DD5A8E400F68962 /* SampleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SampleViewController.xib; sourceTree = "<group>"; };
+		EAF3EB291DD5AA8F00F68962 /* ColorUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorUtil.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +88,9 @@
 		9BE6F52F1DD4D90D00C5B016 /* HQPagerViewController */ = {
 			isa = PBXGroup;
 			children = (
+				EAF3EB241DD5A88F00F68962 /* Controllers */,
 				9BE6F5301DD4D90D00C5B016 /* AppDelegate.swift */,
+				EAF3EB291DD5AA8F00F68962 /* ColorUtil.swift */,
 				9BE6F5321DD4D90D00C5B016 /* ViewController.swift */,
 				9BE6F5341DD4D90D00C5B016 /* Main.storyboard */,
 				9BE6F5371DD4D90D00C5B016 /* Assets.xcassets */,
@@ -108,6 +116,15 @@
 				9BE6F5531DD4D97500C5B016 /* HQPagerMenuView.swift */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		EAF3EB241DD5A88F00F68962 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				EAF3EB251DD5A8E400F68962 /* SampleViewController.swift */,
+				EAF3EB261DD5A8E400F68962 /* SampleViewController.xib */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,6 +212,7 @@
 			files = (
 				9BE6F53B1DD4D90D00C5B016 /* LaunchScreen.storyboard in Resources */,
 				9BE6F5381DD4D90D00C5B016 /* Assets.xcassets in Resources */,
+				EAF3EB281DD5A8E400F68962 /* SampleViewController.xib in Resources */,
 				9BE6F5361DD4D90D00C5B016 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -213,8 +231,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAF3EB271DD5A8E400F68962 /* SampleViewController.swift in Sources */,
 				9BE6F5541DD4D97500C5B016 /* HQPagerMenuView.swift in Sources */,
 				9BE6F5331DD4D90D00C5B016 /* ViewController.swift in Sources */,
+				EAF3EB2A1DD5AA8F00F68962 /* ColorUtil.swift in Sources */,
 				9BE6F5311DD4D90D00C5B016 /* AppDelegate.swift in Sources */,
 				9BE6F5521DD4D95A00C5B016 /* HQPagerViewController.swift in Sources */,
 			);
@@ -420,6 +440,7 @@
 				9BE6F54C1DD4D90D00C5B016 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9BE6F54D1DD4D90D00C5B016 /* Build configuration list for PBXNativeTarget "HQPagerViewControllerTests" */ = {
 			isa = XCConfigurationList;
@@ -428,6 +449,7 @@
 				9BE6F54F1DD4D90D00C5B016 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
