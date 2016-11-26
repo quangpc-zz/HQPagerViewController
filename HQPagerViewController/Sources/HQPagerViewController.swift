@@ -40,7 +40,7 @@ open class HQPagerViewController: UIViewController {
     }
     
     // MARK: Public functions
-    func setSelectedIndex(index: Int, animated: Bool) {
+    public func setSelectedIndex(index: Int, animated: Bool) {
         menuView.setSelectedIndex(index: index, animated: animated)
         selectViewController(atIndex: index, animated: animated)
     }

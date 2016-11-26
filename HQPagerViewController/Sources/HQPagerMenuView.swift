@@ -17,7 +17,7 @@ public struct HQPagerMenuViewItemProvider {
     public var selectedImage: UIImage?
     public var selectedBackgroundColor: UIColor?
     
-    init(title: String, normalImage: UIImage?, selectedImage: UIImage?, selectedBackgroundColor: UIColor?) {
+    public init(title: String, normalImage: UIImage?, selectedImage: UIImage?, selectedBackgroundColor: UIColor?) {
         self.title = title
         self.normalImage = normalImage
         self.selectedImage = selectedImage
@@ -101,7 +101,7 @@ open class HQPagerMenuView: UIView {
         }
     }
     
-    func reloadData() {
+    public func reloadData() {
         guard let dataSource = dataSource else {
             return
         }
@@ -129,7 +129,7 @@ open class HQPagerMenuView: UIView {
         moveHighlightView(toIndex: selectedIndex)
     }
     
-    func setSelectedIndex(index: Int, animated: Bool) {
+    public func setSelectedIndex(index: Int, animated: Bool) {
         let oldIndex = selectedIndex
         selectedIndex = index
         self.showSelectedLabel()
