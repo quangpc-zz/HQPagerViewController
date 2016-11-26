@@ -1,5 +1,7 @@
 # HQPagerViewController
 
+[![Platform](http://img.shields.io/badge/platform-iOS-blue.svg?style=flat)](https://cocoapods.org/?q=HQPagerviewcontroller) [![License](http://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/Yalantis/Segmentio/blob/master/LICENSE) ![Swift 3.x](https://img.shields.io/badge/Swift-3.0-orange.svg)
+
 This control combines the great menu view with a UIPageviewController that takes care of showing the right page when clicking on the menu view and updating the selection when the UIPageviewController scrolls.
 
 ## Screenshots
@@ -21,27 +23,77 @@ Copy HQPagerViewController.swift & HQPagerMenuView.swift to your project.
 
 ## Usage
 Basically we just need to provide the list of child view controllers to show and these view controllers should provide the information for conform HQPagerViewControllerDataSource.
-Check sample project to see how it works.
-
-#### Connect outlets and add layout constrains
+Check sample project to see how it works or take a look to the following guide.
 We strongly recommend to use IB to set up our page controller views.
 
-Drag into the storyboard a UIViewController and set up its class with your pager controller (HQPagerViewController). Drag a UIView into your view controller view and connect to *containerView* outlet. Drag a UIView into your view controller view and set class to *HQPagerMenuView* then connect to outlet *menuView*
+## Guide
 
-#### Setup data source for child controller
-Provide HQPagerMenuViewItemProvider for each child controller
+####1. Create a new ViewController in SB to manage the tabs:
+![guide screen step 1](/guide_imgs/guide_define_tabViewController.png)
+
+####2. Define tabs area creating a new UIView, setting its class to HQPagerMenuView, its Bundle to HQPagerViewController and defining constraints as you wish
+![guide screen step 2](/guide_imgs/guide_define_menuView.png)
+
+####3. Define container area creating a new UIView and defining its constraints
+![guide screen step 3](/guide_imgs/guide_define_containerView.png)
+
+####4. Link tabs and container views outlets to the View Controller
+![guide screen step 4](/guide_imgs/guide_linked_outlets.png)
+
+####5. Create tabs controller class.
 
 ```
-extension SampleViewController: HQPagerViewControllerDataSource {
+import HQPagerViewController
+```
+
+```
+// Define tabs titles
+let titles = ["Tab1", ...]
+// Define tabs background colors
+let colors = [UIColor.green, ...]
+// Define icons for non selected
+let normalIcons = [UIImage(named: "ic_tab_1.png"), ...]
+// Define selected tab icon
+let highlightedIcons = [UIImage(named: "ic_tab_1.png"), ...]
+
+```
+
+```
+class TabVC: HQPagerViewController {
+```
+```
+// build viewcontrollers and set their index
+override func viewDidLoad() {
+    super.viewDidLoad()
+    let vc1 = SampleViewController()
+    vc1.index = 0
+    // ... 
+    self.viewControllers = [vc1, ...]
+}
+```
+####6. Create ViewControllers for tabs and add property 
+
+```
+// Add this property to your child view
+var index: Int = YOUR_CHILD_VIEW_TAB_POSITION
+```
+
+```
+// Add this extension in every child view
+extension YOUR_CHILD_VIEW_NAME: HQPagerViewControllerDataSource {
     func menuViewItemOf(inPager pagerViewController: HQPagerViewController) -> HQPagerMenuViewItemProvider {
+
         let item = HQPagerMenuViewItemProvider(title: titles[index], normalImage: normalIcons[index], selectedImage: highlightedIcons[index], selectedBackgroundColor: colors[index])
         return item
     }
 }
+
 ```
+
 ## Customization
 
 #### Change title Font
+In your Tabs View Controller:
 
 ```
 menuView.titleFont = UIFont.boldSystemFont(ofSize: 14)
@@ -62,7 +114,7 @@ setSelectedIndex(index: 1, animated: false)
 ## Requirements
 iOS 9 and above
 
-## Contributions
+## Contributions  
 ...are really welcome. If you have an idea just fork the library change it and if its useful for others and not affecting the functionality of the library for other users I'll insert it
 
 ## License
