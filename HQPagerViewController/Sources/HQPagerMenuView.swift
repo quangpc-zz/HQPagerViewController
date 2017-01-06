@@ -53,6 +53,12 @@ open class HQPagerMenuView: UIView {
         }
     }
     
+    open var edgeFrameStretchable = true {
+        didSet {
+            updateHighlightViewPosition()
+        }
+    }
+    
     public var selectedIndex: Int = 0
     
     fileprivate let stackView = UIStackView()
@@ -186,11 +192,13 @@ open class HQPagerMenuView: UIView {
         
         var targetFrame = CGRect(x: buttonFrame.minX, y: 0, width: labelFrame.maxX - buttonFrame.minX, height: bounds.size.height)
         let delta = bounds.size.height/2
-        if index == 0 {
-            targetFrame = CGRect(x: -delta, y: 0, width: labelFrame.maxX + delta, height: bounds.size.height)
-        }
-        if index == numberOfItems-1 {
-            targetFrame = CGRect(x: buttonFrame.minX, y: 0, width: bounds.size.width - buttonFrame.minX + delta, height: bounds.size.height)
+        if edgeFrameStretchable {
+            if index == 0 {
+                targetFrame = CGRect(x: -delta, y: 0, width: labelFrame.maxX + delta, height: bounds.size.height)
+            }
+            if index == numberOfItems-1 {
+                targetFrame = CGRect(x: buttonFrame.minX, y: 0, width: bounds.size.width - buttonFrame.minX + delta, height: bounds.size.height)
+            }
         }
         highlightView.frame = targetFrame
         if let item = dataSource.pagerMenuView(self, itemAt: index) {
